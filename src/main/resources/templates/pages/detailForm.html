@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>ToDo앱</title>
+</head>
+<body>
+  <div class="container">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" th:href="|update/${todo.id}|">수정</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" th:data-id="${todo.id}" th:onclick="deleteFunction(this.getAttribute('data-id'));">삭제</button>
+        </li>
+      </ul>
+    <label for="todo">할 일</label>
+    <input id="todo" name="title" type="text" th:value="${todo.title}" readonly/>
+    <label for="todoDetail">상세 내용</label>
+    <textarea id="todoDetail" name="content" th:text="${todo.content}" readonly></textarea>
+  </div>
+</body>
+<script src="/js/index.js"></script>
+</html>

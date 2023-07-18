@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>ToDo앱</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Todo리스트</h2>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="/add">할 일 추가</a>
+            </li>
+        </ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>할 일</th>
+                    <th>내용</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="todo : ${todos}">
+                    <td><a th:href="|/todo/${todo.id}|" th:text="${todo.title}">1</a></td>
+                    <td th:text="${todo.content}">test</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
